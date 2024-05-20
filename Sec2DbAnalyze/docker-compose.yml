@@ -1,0 +1,45 @@
+version: '3.5'
+
+
+services:
+  postgres:
+    container_name: sec2_db_analyze_demo
+    image: postgres
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test123
+      PGDATA: /data/postgres
+    volumes:
+      - postgres-db:/data/postgres
+    ports:
+      - "5432:5432"
+  postgres2:
+    container_name: sec2_db_analyze_demo2
+    image: postgres
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test123
+      PGDATA: /data/postgres
+    volumes:
+      - postgres-db2:/data/postgres
+    ports:
+      - "5433:5432"
+  postgres3:
+    container_name: sec2_db_analyze_demo3
+    image: postgres
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test123
+      PGDATA: /data/postgres
+    volumes:
+      - postgres-db3:/data/postgres
+    ports:
+      - "5700:5432"
+
+volumes:
+  postgres-db:
+    driver: local
+  postgres-db2:
+    driver: local
+  postgres-db3:
+    driver: local
